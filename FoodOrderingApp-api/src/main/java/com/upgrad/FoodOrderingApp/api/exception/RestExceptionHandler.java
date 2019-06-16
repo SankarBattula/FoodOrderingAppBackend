@@ -74,7 +74,44 @@ public class RestExceptionHandler {
         );
     }
 
-    
+    /**
+     * Exception handler for CouponNotFoundException
+     *
+     * @param exe CouponNotFoundException type object containing error code and error message
+     * @param request The web request object gives access to all the request parameters
+     *
+     * @return ResponseEntity<ErrorResponse> type object displaying error code and error message along with HttpStatus NOT_FOUND
+     */
+    @ExceptionHandler(CouponNotFoundException.class)
+    public ResponseEntity<ErrorResponse> couponNotFoundException(CouponNotFoundException exe, WebRequest request) {
+        return new ResponseEntity<ErrorResponse>(
+                new ErrorResponse().code(exe.getCode()).message(exe.getErrorMessage()), HttpStatus.NOT_FOUND
+        );
+    }
+
+    /**
+     * Exception handler for CategoryNotFoundException
+     *
+     * @param exe CategoryNotFoundException type object containing error code and error message
+     * @param request The web request object gives access to all the request parameters
+     *
+     * @return ResponseEntity<ErrorResponse> type object displaying error code and error message along with HttpStatus NOT_FOUND
+     */
+    @ExceptionHandler(CategoryNotFoundException.class)
+    public ResponseEntity<ErrorResponse> categoryNotFoundException(CategoryNotFoundException exe, WebRequest request) {
+        return new ResponseEntity<ErrorResponse>(
+                new ErrorResponse().code(exe.getCode()).message(exe.getErrorMessage()), HttpStatus.NOT_FOUND
+        );
+    }
+
+	/**
+     * Exception handler for SaveAddressException
+     *
+     * @param exe SaveAddressException type object containing error code and error message
+     * @param request The web request object gives access to all the request parameters
+     *
+     * @return ResponseEntity<ErrorResponse> type object displaying error code and error message along with HttpStatus NOT_FOUND
+     */
     @ExceptionHandler(SaveAddressException.class)
     public ResponseEntity<ErrorResponse> saveAddressException(SaveAddressException exe, WebRequest request) {
         return new ResponseEntity<ErrorResponse>(
@@ -82,6 +119,14 @@ public class RestExceptionHandler {
         );
     }
 
+	/**
+     * Exception handler for AddressNotFoundException
+     *
+     * @param exe AddressNotFoundException type object containing error code and error message
+     * @param request The web request object gives access to all the request parameters
+     *
+     * @return ResponseEntity<ErrorResponse> type object displaying error code and error message along with HttpStatus NOT_FOUND
+     */
     @ExceptionHandler(AddressNotFoundException.class)
     public ResponseEntity<ErrorResponse> addressNotFoundException(AddressNotFoundException exe, WebRequest request) {
         return new ResponseEntity<ErrorResponse>(
@@ -89,4 +134,64 @@ public class RestExceptionHandler {
         );
     }
 
+	/**
+     * Exception handler for PaymentMethodNotFoundException
+     *
+     * @param exe PaymentMethodNotFoundException type object containing error code and error message
+     * @param request The web request object gives access to all the request parameters
+     *
+     * @return ResponseEntity<ErrorResponse> type object displaying error code and error message along with HttpStatus NOT_FOUND
+     */
+    @ExceptionHandler(PaymentMethodNotFoundException.class)
+    public ResponseEntity<ErrorResponse> paymentMethodNotFoundException(PaymentMethodNotFoundException exe, WebRequest request) {
+        return new ResponseEntity<ErrorResponse>(
+                new ErrorResponse().code(exe.getCode()).message(exe.getErrorMessage()), HttpStatus.NOT_FOUND
+        );
+    }
+
+	/**
+     * Exception handler for RestaurantNotFoundException
+     *
+     * @param exe RestaurantNotFoundException type object containing error code and error message
+     * @param request The web request object gives access to all the request parameters
+     *
+     * @return ResponseEntity<ErrorResponse> type object displaying error code and error message along with HttpStatus NOT_FOUND
+     */
+    @ExceptionHandler(RestaurantNotFoundException.class)
+    public ResponseEntity<ErrorResponse> restaurantNotFoundException(RestaurantNotFoundException exe, WebRequest request) {
+        return new ResponseEntity<ErrorResponse>(
+                new ErrorResponse().code(exe.getCode()).message(exe.getErrorMessage()), HttpStatus.NOT_FOUND
+        );
+    }
+
+	/**
+     * Exception handler for ItemNotFoundException
+     *
+     * @param exe ItemNotFoundException type object containing error code and error message
+     * @param request The web request object gives access to all the request parameters
+     *
+     * @return ResponseEntity<ErrorResponse> type object displaying error code and error message along with HttpStatus NOT_FOUND
+     */
+    @ExceptionHandler(ItemNotFoundException.class)
+    public ResponseEntity<ErrorResponse> itemNotFoundException(ItemNotFoundException exe, WebRequest request) {
+        return new ResponseEntity<ErrorResponse>(
+                new ErrorResponse().code(exe.getCode()).message(exe.getErrorMessage()), HttpStatus.NOT_FOUND
+        );
+    }
+	
+	/**
+     * Exception handler for InvalidRatingException
+     *
+     * @param exe InvalidRatingException type object containing error code and error message
+     * @param request The web request object gives access to all the request parameters
+     *
+     * @return ResponseEntity<ErrorResponse> type object displaying error code and error message along with HttpStatus NOT_FOUND
+     */
+
+    @ExceptionHandler(InvalidRatingException.class)
+    public ResponseEntity<ErrorResponse> invalidRatingException(InvalidRatingException exe, WebRequest request) {
+        return new ResponseEntity<ErrorResponse>(
+                new ErrorResponse().code(exe.getCode()).message(exe.getErrorMessage()), HttpStatus.BAD_REQUEST
+        );
+    }
 }
